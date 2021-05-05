@@ -1,0 +1,4 @@
+curl -u 'USER' https://api.github.com/user/repos -d '{"name":"REPO"}'
+texto diferente
+git remote add origin git@github.com:andres-condezo/canvas2.git
+git remote set-url origin git@github.com:andres-condezo/canvas2.git
