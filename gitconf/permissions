@@ -1,0 +1,2 @@
+git ls-files --stage
+git update-index --chmod=+x 'name-of-shell-script'
