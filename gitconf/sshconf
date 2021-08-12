@@ -4,6 +4,9 @@ ssh-keygen -t rsa -b 4096 -C "tu@email.com"
 
 Segundo paso: Terminar de configurar nuestro sistema.
 
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
 En Windows y Linux:
 
 # Encender el "servidor" de llaves SSH de tu computadora:
@@ -11,6 +14,9 @@ eval $(ssh-agent -s)
 
 # Añadir tu llave SSH a este "servidor":
 ssh-add ruta-donde-guardaste-tu-llave-privada
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
 
 En Mac:
 
