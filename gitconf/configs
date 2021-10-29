@@ -1,2 +1,3 @@
 git config [--global] user.name "Full Name"
 git config [--global] user.email "email@address.com"
+git config --global commit.template ~/.gitmessagevim ~/.gitmessage
