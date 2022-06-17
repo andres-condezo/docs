@@ -1,0 +1,130 @@
+/* "------------------------------------------------------------------------- */
+/* "------------------------ Settings */
+
+/* WRITE */
+cmap w!! w !sudo tee %
+
+/* FOLD */
+autocmd BufWinEnter *.* silent loadview
+
+/* Conceallevel */
+autocmd BufRead,BufNewFile * set conceallevel=0
+autocmd FileType md setlocal conceallevel=0
+
+/* Numbers */
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+/* "----- SOURCE */
+au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+/* "--------------- * */
+autocmd bufwritepost *.js silent !semistandard % --fix
+
+
+/* "------------------------------------------------------------------------- */
+/* "------------------------ Plugins----------------------------------------- */
+
+/* "------ FILES */
+
+" Plug 'scrooloose/NERDTree'
+" Git status flag for nerdtree
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Fuzzy finder
+" file manager
+" Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+
+/* "--------- SCROLL */
+
+" Plug 'petertriho/nvim-scrollbar'
+" Plug 'kevinhwang91/nvim-hlslens'
+" Plug 'dsummersl/nvim-sluice'
+" Plug 'dstein64/nvim-scrollview'
+
+/* "--------- PAIRS */
+" Auto pairs for '(' '[' '{'
+" Plug 'jiangmiao/auto-pairs'
+
+/* " -------- * */
+" Plug 'pearofducks/ansible-vim'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+
+/* Airline */
+" Always show tabs
+" set showtabline=2
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" function! AccentDemo()
+"   let keys = ['a','b','c','d','e','f','g','h']
+"   for k in keys
+"     call airline#parts#define_text(k, k)
+"   endfor
+"   call airline#parts#define_accent('a', 'red')
+"   call airline#parts#define_accent('b', 'green')
+"   call airline#parts#define_accent('c', 'blue')
+"   call airline#parts#define_accent('d', 'yellow')
+"   call airline#parts#define_accent('e', 'orange')
+"   call airline#parts#define_accent('f', 'purple')
+"   call airline#parts#define_accent('g', 'bold')
+"   call airline#parts#define_accent('h', 'italic')
+"   let g:airline_section_a = airline#section#create(keys)
+" endfunction
+" autocmd VimEnter * call AccentDemo()
+
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = ' ¶'
+" let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'
+
+
+
+" function! AccentDemo()
+"   let keys = ['a','b','c','d','e','f','g','h']
+"   for k in keys
+"     call airline#parts#define_text(k, k)
+"   endfor
+"   call airline#parts#define_accent('a', 'red')
+"   call airline#parts#define_accent('b', 'green')
+"   call airline#parts#define_accent('c', 'blue')
+"   call airline#parts#define_accent('d', 'yellow')
+"   call airline#parts#define_accent('e', 'orange')
+"   call airline#parts#define_accent('f', 'purple')
+"   call airline#parts#define_accent('g', 'bold')
+"   call airline#parts#define_accent('h', 'italic')
+"   let g:airline_section_a = airline#section#create(keys)
+" endfunction
+" autocmd VimEnter * call AccentDemo()
+
+" function! Init()
+"   call airline#parts#define_function('cwd', 'getcwd')
+"   call airline#parts#define_minwidth('cwd', 80) "adjust as necessary, it'll check against windwidth()
+"   let g:airline_section_b = airline#section#create(['Buf #[%n] ', 'cwd'])
+" endfunction
+" autocmd VimEnter * call Init()
+
+" let g:airline_section_b = '%{getcwd()}'
+
+" let g:airline_theme_patch_func = true
+
+" function! AirlineInit()
+"   let g:airline#themes#onedark#palette.normal = airline#themes#generate_color_map(
+"     \ ['red', 'red', 15, 14, 'red'],
+"     \ ['', '', 15, 14, ''],
+"     \ ['', '', 15, 14, ''])
+
+"   let g:airline#themes#onedark#palette.inactive = airline#themes#generate_color_map(
+"     \ ['', '', 8, 8, ''],
+"     \ ['', '', 8, 8, ''],
+"     \ ['', '', 8, 8, ''])
+"   " Further settings here
+" endfunction
+" autocmd User AirlineAfterInit call AirlineInit()
